@@ -40,19 +40,21 @@ class AddBugScreenState extends State<AddBugScreen> with ValidateMixing {
       ),
       body: Container(
         padding: EdgeInsets.all(30),
-        child: Form(
-          key: formKey,
-          child: Column(
-            children: <Widget>[
-              Container(margin: EdgeInsets.only(top: 10)),
-              titleTextField(),
-              Container(margin: EdgeInsets.only(top: 30)),
-              contentTextField(),
-              Container(margin: EdgeInsets.only(top: 30)),
-              assignToWidget(),
-              Container(margin: EdgeInsets.only(top: 30)),
-              submitButtonWidget(),
-            ],
+        child: SingleChildScrollView(
+          child: Form(
+            key: formKey,
+            child: Column(
+              children: <Widget>[
+                Container(margin: EdgeInsets.only(top: 10)),
+                titleTextField(),
+                Container(margin: EdgeInsets.only(top: 30)),
+                contentTextField(),
+                Container(margin: EdgeInsets.only(top: 30)),
+                assignToWidget(),
+                Container(margin: EdgeInsets.only(top: 30)),
+                submitButtonWidget(),
+              ],
+            ),
           ),
         ),
       ),
@@ -127,19 +129,23 @@ class AddBugScreenState extends State<AddBugScreen> with ValidateMixing {
     return Mutation(
       addBug,
       builder: (runMutation, {data, error, loading}) {
-
         return MaterialButton(
           minWidth: 400,
           height: 45,
           color: Colors.pinkAccent,
-          child: Text('Login', style: TextStyle(fontSize: 18)),
+          child: Text('Add', style: TextStyle(fontSize: 18)),
           textColor: Colors.white,
           splashColor: Colors.pink,
           onPressed: () {
             if (formKey.currentState.validate()) {
               formKey.currentState.save();
               if (assignTo != null) {
-                runMutation({'adminId': uid,'assignEmail':assignTo,'description':description,'title':title});
+                runMutation({
+                  'adminId': uid,
+                  'assignEmail': assignTo,
+                  'description': description,
+                  'title': title
+                });
               }
             }
           },

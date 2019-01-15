@@ -44,21 +44,23 @@ class ViewBugDetailsScreenState extends State<ViewBugDetailsScreen> {
       ),
       body: Container(
         padding: EdgeInsets.all(25),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            titleTextWidget(),
-            Container(margin: EdgeInsets.only(top: 20)),
-            Container(
-                height: 150,
-                child: SingleChildScrollView(child: descriptionTextWidget())),
-            Container(margin: EdgeInsets.only(top: 20)),
-            assignedToTextWidget(),
-            Container(margin: EdgeInsets.only(top: 30)),
-            statusWidget(),
-            Container(margin: EdgeInsets.only(top: 40)),
-            updateStatusButton()
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              titleTextWidget(),
+              Container(margin: EdgeInsets.only(top: 20)),
+              Container(
+                  height: 150,
+                  child: SingleChildScrollView(child: descriptionTextWidget())),
+              Container(margin: EdgeInsets.only(top: 20)),
+              assignedToTextWidget(),
+              Container(margin: EdgeInsets.only(top: 30)),
+              statusWidget(),
+              Container(margin: EdgeInsets.only(top: 40)),
+              updateStatusButton()
+            ],
+          ),
         ),
       ),
     );
