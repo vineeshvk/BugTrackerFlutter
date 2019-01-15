@@ -27,7 +27,7 @@ It's is build using Flutter SDK and Dart. And uses graphql_flutter to connect wi
 - create bug and assign
 - view bugs
 - change status of bugs
-- checks for update every 3 seconds
+- checks for updated data every 3 seconds
 
 ### Libraries used
 - [graphql_flutter](https://pub.dartlang.org/packages/graphql_flutter)
